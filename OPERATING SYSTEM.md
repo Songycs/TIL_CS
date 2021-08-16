@@ -14,7 +14,10 @@ OPERATING SYSTEM(운영체제)
  또한 프로세스는 프로세스 실행 중에 동적으로 할당되는 메모리인 힙을 포함한다.
  - PCB(PROCESS CONTROL BLOCK)  
    프로세스에 대한 중요한 정보를 저장하고있는 자료구조, 프로세스에 고유한 PCB를 형성하며, CONTEXT SWITCHING시,  
-   진행하던 작업을 저장하고 CPU에 반환할때 진행상황을 PCB에 저장 후, CPU에게 재할당 받을때 PCB에서 불러와 
+   진행하던 작업을 저장하고 CPU에 반환할때 진행상황을 PCB에 저장 후, CPU에게 재할당 받을때 PCB에서 불러와 작업 재수행
+   - PID, Process state, pc, cpu register, cpu scheduling(priority), memory management, input&output state, accounting
+
+
  ##### Thread
  
  - 스레드는 프로세스의 실행 단위
