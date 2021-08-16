@@ -5,7 +5,7 @@
 
 ### Process & Thread  
 
- ##### Process
+ ##### `Process`
  
  - 실행 중인 프로그램으로 디스크로부터 메모리에 적재되어 CPU 의 할당을 받을 수 있는 것을 말한다.   
  운영체제로부터 주소 공간, 파일, 메모리 등을 할당받으며 이것들을 총칭하여 프로세스라고 한다.   
@@ -21,9 +21,10 @@
    - 여러 프로세스를 처리하는 방법
    - 동작 중인 프로세스의 상태(CONTEXT) 저장, 다음에 실행할 프로세스 상태(CONTEXT) 복구
 
- ##### Thread
+ ##### `Thread`
  
  - 스레드는 프로세스의 실행 단위
+ - 스레드 ID, 
  - 한 프로세스 내에서 동작되는 여러 실행 흐름으로 프로세스 내의 주소 공간이나 자원을 공유
  - 스레드는 스레드 ID, 프로그램 카운터, 레지스터 집합, 그리고 스택으로 구성된다.
    - 프로그램 카운터(PC)는 명령어를 어디까지 수행하였는지를 나타냄  
@@ -39,14 +40,14 @@
 
 ### Multi Process & Multi Thread  
 
- ##### Multi Process
+ ##### `Multi Process`
  
  - 하나의 응용프로그램을 여러개의 프로세스로 구성하여 각 프로세스가 한 역할(task) 수행
  - `장점` : 한 프로세스의 ISSUE에 무딤 ( 각 프로세스가 서로에 영향력이 적음 )
  - `단점` : context switching시 오버헤드가 큼 ( cache initialization etc )  
           프로세스가 독림된 메모리영역을 갖기 때문 ( IPC, 변수 등 공유 불가 )
           
- ##### Multi Thread
+ ##### `Multi Thread`
  
  - 하나의 프로그램 내에서 여러 작업이 필요할 때 활용
  
@@ -64,7 +65,7 @@
 ### DEADLOCK 
  **교착상태, 운영체제 혹은 소프트웨어의 잘못된 자원관리로 둘 이상의 프로세스가 함께 LOCK이 걸리는 상태**
  
- ##### CONDITION
+ ##### `CONDITION`
   - `상호 배제` *(Mutual exclusion)*
     - 프로그램이 자원을 점유하는 데 있어서 배타적 ( 자원 동시 사용 불가 )
   
@@ -77,7 +78,7 @@
   - `순환성 대기` *(Circular wait)*
     - ??
 
- ##### SOLUTION
+ ##### `SOLUTION`
   - `Mutex`
     - 접근권한(LOCK)이 있어야 공유 데이터 접근 가능
   - `emaphore`
@@ -89,10 +90,10 @@
 
 ### Memory Managament
 
- ##### Paging & Segmentation
+ ##### `Paging & Segmentation`
  
  - `Paging`
-   - 
+   - EXPLANATION
  - `Segementation` 
    - 프로세스가 필요한 양보다 더 큰 메모리가 할당되는 경우, 내부 메모리 공간이 낭비되는 상태
 
@@ -100,7 +101,7 @@
  - `External Fragmentation`
    - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태 
 
- ##### Fragmentation
+ ##### `Fragmentation`
  
  - 메모리가 공간 조각으로 나누어져 사용 가능한 메모리이지만, 할당이 불가능한 상태
  
@@ -114,7 +115,7 @@
 
 ### CPU Scheduling
 
- ##### Valuation
+ ##### `Valuation`
  
  - CPU Utilization
  - Response time 
@@ -122,14 +123,20 @@
  - Turnaround Time ( from start to end )
  - Throughput ( per unit time )
 
- ##### Scheduling Algorithm
+ ##### `Scheduling Algorithm`
  
  - `Preemptive`
    
    - 실행중인 프로세스를 중지하고 CPU 강제 점유 가능
    - 모든 프로세스에 cpu 동일하게 부여 가능
    - 빠른 응답시간 
-
+   - 종류 :
+     - RR
+     - SRTF ( Shortest remaining-time first scheduling )
+     - Multi-level queue
+     - Multi feedback queue
+     - RM (rate monotonic)
+     - EDF (earlist deadline first)
  - `Non-preemptive`
  
    -  한 프로세스가 할당 받으면, 종료되거나 자발적 중지까지 실행 보장
@@ -139,7 +146,7 @@
    -  종류 : 
      - FCFS
      - SJF
-     - HRRN(Highest Response Ratio Next Scheduling)
+     - HRRN (Highest Response Ratio Next Scheduling)
 
 
 ---------------------------------------
