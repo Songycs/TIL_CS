@@ -2,6 +2,8 @@
 - 운영 체제 또는 오퍼레이팅 시스템(Operating System, 약칭:OS)은 시스템 하드웨어를 관리할 뿐 아니라  
  응용 소프트웨어를 실행하기 위하여 하드웨어 추상화 플랫폼과 공통 시스템 서비스를 제공하는 시스템 소프트웨어
 ---------------------------------------
+### Kernel
+
 
 ### Process & Thread  
 
@@ -20,6 +22,7 @@
    - memory management ( page & segmentation table ), input&output state, accounting ( time limit, uid )
  - `CONTEXT SWITCHING  `
    - 여러 프로세스를 처리하는 방법
+   - Interrupt
    - 동작 중인 프로세스의 상태(CONTEXT) 저장, 다음에 실행할 프로세스 상태(CONTEXT) 복구
 
  ##### `Thread`
@@ -113,6 +116,8 @@
 
  - `External Fragmentation`
    - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태 
+
+ ##### `Page Fault`
 
  ##### `Page exchange algorithm`
   - FIFO
