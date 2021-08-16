@@ -113,6 +113,16 @@
 
  - `External Fragmentation`
    - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태 
+
+ ##### `Page exchange algorithm`
+  - FIFO
+  - OPT
+  - LRU
+  - LFU
+  - MFU
+
+ ##### `Logical & Virtual & Physical`
+
 ---------------------------------------
 
 ### CPU Scheduling
@@ -154,8 +164,12 @@
 ---------------------------------------
 
 ### Sync & Async
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
+ ##### dd
+ - dd
 
 ---------------------------------------
+
+### kernel lv thread & user lv thread
+ ##### dd
+ - dd
 
