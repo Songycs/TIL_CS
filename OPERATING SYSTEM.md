@@ -79,57 +79,72 @@
 
  ##### SOLUTION
   - `Mutex`
-   - 접근권한(LOCK)이 있어야 공유 데이터 접근 가능
+    - 접근권한(LOCK)이 있어야 공유 데이터 접근 가능
   - `emaphore`
-   - 동시에 자원에 접근가능한 개수 Counter
+    - 동시에 자원에 접근가능한 개수 Counter
   - `Monitor`
-   -Mutex와 상태변수(queue)를 갖고있는 동기화 과정
+    -Mutex와 상태변수(queue)를 갖고있는 동기화 과정
 
 ---------------------------------------
 
-### On developing
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
+### Memory Managament
+
+ ##### Paging & Segmentation
+ 
+ - `Paging`
+   - 
+ - `Segementation` 
+   - 프로세스가 필요한 양보다 더 큰 메모리가 할당되는 경우, 내부 메모리 공간이 낭비되는 상태
+
+
+ - `External Fragmentation`
+   - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태 
+
+ ##### Fragmentation
+ 
+ - 메모리가 공간 조각으로 나누어져 사용 가능한 메모리이지만, 할당이 불가능한 상태
+ 
+ - `Internal Fragmentation` 
+   - 프로세스가 필요한 양보다 더 큰 메모리가 할당되는 경우, 내부 메모리 공간이 낭비되는 상태
+
+
+ - `External Fragmentation`
+   - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태 
+---------------------------------------
+
+### CPU Scheduling
+
+ ##### Valuation
+ 
+ - CPU Utilization
+ - Response time 
+ - Waiting time ( on ready-queue ) 
+ - Turnaround Time ( from start to end )
+ - Throughput ( per unit time )
+
+ ##### Scheduling Algorithm
+ 
+ - `Preemptive`
+   
+   - 실행중인 프로세스를 중지하고 CPU 강제 점유 가능
+   - 모든 프로세스에 cpu 동일하게 부여 가능
+   - 빠른 응답시간 
+
+ - `Non-preemptive`
+ 
+   -  한 프로세스가 할당 받으면, 종료되거나 자발적 중지까지 실행 보장
+   -  처리율이 떨어질 수 있음 ( 소모가 큰 한 프로세스가 나머지 프로세스 대기시킴 )
+   -  순서대로 처리되는 공정성
+   -  응답시간 예상가능
+   -  종류 : 
+     - FCFS
+     - SJF
+     - HRRN(Highest Response Ratio Next Scheduling)
+
 
 ---------------------------------------
 
-### Memory Management
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
-
----------------------------------------
-
-### On developing
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
-
----------------------------------------
-
-### On developing
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
-
----------------------------------------
-
-### On developing
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
-
----------------------------------------
-
-### On developing
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
-
----------------------------------------
-
-### On developing
- ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
- - **Firebase -> AWS**
-
----------------------------------------
-
-### On developing
+### Sync & Async
  ##### 화가 ZIBEZI의 웹 갤러리로서 프로필, 공지, 갤러리, 쇼핑몰을 운영하고
  - **Firebase -> AWS**
 
