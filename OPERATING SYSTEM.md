@@ -14,9 +14,10 @@
  또한 프로세스는 프로세스 실행 중에 동적으로 할당되는 메모리인 힙을 포함한다.
  
  - `PCB(PROCESS CONTROL BLOCK)  `
-   프로세스에 대한 중요한 정보를 저장하고있는 자료구조, 프로세스에 고유한 PCB를 형성하며, CONTEXT SWITCHING시,  
+   프로세스에 대한 중요한 정보 및 진행상황을 저장하고있는 자료구조, 프로세스에 고유한 PCB를 형성하며, CONTEXT SWITCHING시,  
    진행하던 작업을 저장하고 CPU에 반환할때 진행상황을 PCB에 저장 후, CPU에게 재할당 받을때 PCB에서 불러와 작업 재수행
-   - PID, Process state, pc, cpu register, cpu scheduling(priority), memory management, input&output state, accounting
+   - PID, Process state, pc ( next inst ), cpu register, cpu scheduling(priority)
+   - memory management ( page & segmentation table ), input&output state, accounting ( time limit, uid )
  - `CONTEXT SWITCHING  `
    - 여러 프로세스를 처리하는 방법
    - 동작 중인 프로세스의 상태(CONTEXT) 저장, 다음에 실행할 프로세스 상태(CONTEXT) 복구
@@ -24,13 +25,14 @@
  ##### `Thread`
  
  - 스레드는 프로세스의 실행 단위
- - 스레드 ID, 
  - 한 프로세스 내에서 동작되는 여러 실행 흐름으로 프로세스 내의 주소 공간이나 자원을 공유
- - 스레드는 스레드 ID, 프로그램 카운터, 레지스터 집합, 그리고 스택으로 구성된다.
+ - thread ID, PC, Registers, stack
    - 프로그램 카운터(PC)는 명령어를 어디까지 수행하였는지를 나타냄  
      CPU에게 자원을 할당받고 스케줄러에 의해 선점당하는 과정 반복  
-     스레드마다 PC레지스터를 독립적으로 할당함
-   -
+     **스레드마다 PC를 독립적으로 할당**함
+   - stack을 독립적으로 할당한다는 의미는 '독립적인 함수호출'이 가능하단말  
+     stack에 return주소, local variable, arguments 저장
+  
  같은 프로세스에 속한 다른 스레드와 코드, 데이터 섹션, 그리고 열린 파일이나 신호와 같은 운영체제 자원들을 공유한다.  
  하나의 프로세스를 다수의 실행 단위로 구분하여 자원을 공유하고 자원의 생성과 관리의 중복성을 최소화하여   
  수행 능력을 향상시키는 것을 멀티스레딩이라고 한다. 이 경우 각각의 스레드는 독립적인 작업을 수행해야 하기 때문에 각자의 스택과 PC 레지스터 값을 갖고 있다. 
