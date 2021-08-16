@@ -13,11 +13,11 @@
  프로세스 스택과 전역 변수들을 수록하는 데이터 섹션을 포함한다.   
  또한 프로세스는 프로세스 실행 중에 동적으로 할당되는 메모리인 힙을 포함한다.
  
- - PCB(PROCESS CONTROL BLOCK)  
+ - `PCB(PROCESS CONTROL BLOCK)  `
    프로세스에 대한 중요한 정보를 저장하고있는 자료구조, 프로세스에 고유한 PCB를 형성하며, CONTEXT SWITCHING시,  
    진행하던 작업을 저장하고 CPU에 반환할때 진행상황을 PCB에 저장 후, CPU에게 재할당 받을때 PCB에서 불러와 작업 재수행
    - PID, Process state, pc, cpu register, cpu scheduling(priority), memory management, input&output state, accounting
- - CONTEXT SWITCHING  
+ - `CONTEXT SWITCHING  `
    - 여러 프로세스를 처리하는 방법
    - 동작 중인 프로세스의 상태(CONTEXT) 저장, 다음에 실행할 프로세스 상태(CONTEXT) 복구
 
@@ -42,19 +42,19 @@
  ##### Multi Process
  
  - 하나의 응용프로그램을 여러개의 프로세스로 구성하여 각 프로세스가 한 역할(task) 수행
- - 장점 : 한 프로세스의 ISSUE에 무딤 ( 각 프로세스가 서로에 영향력이 적음 )
- - 단점 : context switching시 오버헤드가 큼 ( cache initialization etc )  
+ - `장점` : 한 프로세스의 ISSUE에 무딤 ( 각 프로세스가 서로에 영향력이 적음 )
+ - `단점` : context switching시 오버헤드가 큼 ( cache initialization etc )  
           프로세스가 독림된 메모리영역을 갖기 때문 ( IPC, 변수 등 공유 불가 )
           
  ##### Multi Thread
  
  - 하나의 프로그램 내에서 여러 작업이 필요할 때 활용
  
- - 장점 : 자원 효율성 ( 자원 할당 system call이 적음 )  
+ - `장점` : 자원 효율성 ( 자원 할당 system call이 적음 )  
           처리 비용 감소( 스레드 간 데이터등의 공유가 간단)  
           프로그램 응답시간 단축 ( stack을 제외한 모든 메모리를 공유하기 때문에 응답시간이 짧음 )
           
- - 단점 : 설계와 디버깅이 어려움  
+ - `단점` : 설계와 디버깅이 어려움  
           프로세스 밖에서 스레드 각각을 제어할 수 없음  
           멀티 스레드의 경우 자원 공유의 문제가 발생(sync)
           하나의 스레드에 문제가 발생하면 전체 프로세스가 영향         
@@ -63,23 +63,28 @@
 
 ### DEADLOCK 
  **교착상태, 운영체제 혹은 소프트웨어의 잘못된 자원관리로 둘 이상의 프로세스가 함께 LOCK이 걸리는 상태**
+ 
  ##### CONDITION
   - `상호 배제` *(Mutual exclusion)*
-    - 프로그램이 자원을 점유하는 데 있어서 배타적이다. 즉 자원 자체를 동시에 쓸 수 없는 경우
+    - 프로그램이 자원을 점유하는 데 있어서 배타적 ( 자원 동시 사용 불가 )
   
   - `점유 상태로 대기` *(Hold and wait)*
-    - 자원을 붙잡은 상태에서 다른 자원을 기다리고 경우
+    - 자원을 붙잡은 상태에서 다른 자원을 기다림
   
   - `선점 불가` *(No preemption)*
-    - 다른 프로세스가 자원을 뺏어올 방법이 없는 경우
+    - 다른 프로세스가 사용중인 걸 뺏어오지 않음
   
   - `순환성 대기` *(Circular wait)*
-    - 대기가 꼬리를 물고 사이클이 되어 자기 순서로 돌아와도 기다리는 경우
- ##### CONDITION
- - **Firebase -> AWS**
+    - ??
 
- ##### CONDITION
- - **Firebase -> AWS**
+ ##### SOLUTION
+  - `Mutex`
+   - 접근권한(LOCK)이 있어야 공유 데이터 접근 가능
+  - `emaphore`
+   - 동시에 자원에 접근가능한 개수 Counter
+  - `Monitor`
+   -Mutex와 상태변수(queue)를 갖고있는 동기화 과정
+
 ---------------------------------------
 
 ### On developing
