@@ -118,29 +118,41 @@
 ---------------------------------------
 
 ### Memory Managament
+ ##### `MMU(memory management unit)`
+ 
+  
+ ##### `Fragmentation`
+ 
+ - 메모리가 공간 조각으로 나누어져 사용 가능한 메모리이지만, 할당이 불가능한 상태
+ ![image](https://user-images.githubusercontent.com/15559593/130338224-13c79e16-254f-45a4-805c-193b106222d7.png)
+
+ - `External Fragmentation`
+   - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태  
+   - 총 공간상으로 필요한 만큼 메모리가 존재하지만 연속적이지 않아 사용할 수 없을때
+   - Compaction ( copy 과정에서 I/O 문제 -> Paging의 필요성 )
+ 
+ - `Internal Fragmentation` 
+   - 프로세스가 필요한 양보다 더 큰 메모리가 할당되는 경우, 내부 메모리 공간이 낭비되는 상태
+   - 동일 크기로 메모리를 잘라 할당하였을때, 남는 자투리 ( 15byte -> 4, 4, 4, 3 ) 
 
  ##### `Paging & Segmentation`
  
  - `Paging`
-   - EXPLANATION
+   - virtual memeory를 같은 크기의 블록으로 나누는걸 Paging이라고 함
+   - RAM을 페이지와 같은 크기로 나눈 것을 Frame이라고 함
+   - 사용하지 않는 frame을 page에 옮기고, 필요한 메모리를 page단위로 frame에 옮기는 기법
+   - page <-> frame mapping과정을 위해서 paging table을 만들어 줌
+   - 외부 단편화 문제는 해결, 내부 단편화는 여전히 존재
+   - 페이지 단위가 작으면 내부 단편화도 해결할 수 있으나 mapping과정에서 로드 발생으로 효율저하
+
  - `Segementation` 
-   - 프로세스가 필요한 양보다 더 큰 메모리가 할당되는 경우, 내부 메모리 공간이 낭비되는 상태
-
-
- - `External Fragmentation`
-   - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태 
-
- ##### `Fragmentation`
- 
- - 메모리가 공간 조각으로 나누어져 사용 가능한 메모리이지만, 할당이 불가능한 상태
- 
- - `Internal Fragmentation` 
-   - 프로세스가 필요한 양보다 더 큰 메모리가 할당되는 경우, 내부 메모리 공간이 낭비되는 상태
-
-
- - `External Fragmentation`
-   - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태 
-
+   - paging에서 virtual memory를 같은 크기로 분할했다면, segmentation은 크기가 다른  
+     논리적 단위인 segment로 분할해서 메모리를 할당하여 실제 메모리 주소로 변환
+   - 크기가 다르기때문에 미리 분할 할 수 없고, 메모리에 적재시 빈 공간을 찾아 할당하는 기법
+   - mapping을 위해 segment table이 존재해야함
+   - 필요한 만큼 할당해주기 때문에 내부 단편화는 일어나지 않음, 중간에 메모리해제시 외부 단편화 발생
+   - 어떻게 자르는가를 제외하면 메모리를 할당하는 기법에 있어서는 paging고 방법이 같음
+   - 
  ##### `Page Fault`
 
  ##### `Page exchange algorithm`
