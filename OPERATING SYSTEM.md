@@ -166,7 +166,19 @@
     - ![image](https://user-images.githubusercontent.com/15559593/130338326-212b70ad-7da6-48ad-ad51-b3878118905b.png)
 
   - OPT
-  - LRU
+    - 가장 오랫동안 사용되지 '않을' frame을 victim으로 선택 ( 예측이기때문에 이론상 존재 )
+![image](https://user-images.githubusercontent.com/15559593/130338362-fd147055-4dc6-404d-9001-5da512662e77.png)
+
+  - LRU ( Least Recently Used )
+    - 가장 오랫동안 사용되지 않은 Page의 frame을 선택 ( 최근 실행 시 조만간 다시 사용될 것이라 가정 )
+
+![image](https://user-images.githubusercontent.com/15559593/130338381-98e57e1c-c24f-41a0-90c4-8c6fb0757cae.png)
+
+    - 각 page가 실행될때 실행 시간을 page table에 저장 (하드웨어적)
+    - 실행 순서를 stack으로 쌓아서 관리(하드웨어적)
+    - 'Reference - Bit' 활용
+![image](https://user-images.githubusercontent.com/15559593/130338458-dcb4031c-4f57-40ed-87a7-c36e3cdfdbef.png)
+
   - LFU
   - MFU
 
