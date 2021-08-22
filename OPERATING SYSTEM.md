@@ -145,6 +145,7 @@
    - page <-> frame mapping과정을 위해서 paging table을 만들어 줌
    - 외부 단편화 문제는 해결, 내부 단편화는 여전히 존재
    - 페이지 단위가 작으면 내부 단편화도 해결할 수 있으나 mapping과정에서 로드 발생으로 효율저하
+   - ![image](https://user-images.githubusercontent.com/15559593/130338719-ecb2945e-b983-4f71-8b72-fe2c654927fe.png)
 
  - `Segementation` 
    - paging에서 virtual memory를 같은 크기로 분할했다면, segmentation은 크기가 다른  
