@@ -155,12 +155,14 @@
    - 어떻게 자르는가를 제외하면 메모리를 할당하는 기법에 있어서는 paging고 방법이 같음
    - 
  ##### `Page Fault`
+ 
    - 실행시켜야할 PAGE가 메모리에 올라와있지 않은 상태
    - disk에서 해당부분을 찾아 실제 메모리의 비어있는 frame(ram)에 올리고 page table 갱신
    - 비어있는 frame이 존재하지 않으면? -> page replacement 알고리즘
 ![image](https://user-images.githubusercontent.com/15559593/130338287-0a00a32b-0b5c-46f3-89a3-c74fbbf63c92.png)
  
  ##### `Page replacement algorithm`
+ 
   - FIFO
     - 실제 메모리에 올라온지 (Frame을 차지한지) 가장 오래된 Frame을 선택하는 알고리즘
     - ![image](https://user-images.githubusercontent.com/15559593/130338326-212b70ad-7da6-48ad-ad51-b3878118905b.png)
@@ -180,8 +182,13 @@
     - 'second chance' (1 bit짜리 reference bit을 두고, 초기값 0 에서 access시 1로 변경)  
       1이면 최근에 접근 되었다는 의미이므로 0으로 변경하고 한번 더 기회를 주고 다른 victim을 찾음  
       만약 모든 page의 bit가 1이라면 결국은 fifo와 동일
-  - LFU
-  - MFU
+  
+  - LFU ( Least Frequently Used )
+    - 주기억장치에 적재된 page에 대해 참조된 횟수를 기준으로 교체 페이지 선정
+
+
+  - MFU ( Most Frequently Used 
+    - 참조 횟수가 가장 많은 page를 교체
 
  ##### `Logical & Virtual & Physical`
 
