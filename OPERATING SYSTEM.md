@@ -119,12 +119,13 @@
 
 ### Memory Managament
  ##### `MMU(memory management unit)`
- 
+  - CPU 코어 안에 탑재되서 virtual address를 실제 메모리 주소로 변환해주는 장치
+ ![image](https://user-images.githubusercontent.com/15559593/130338229-4be6e1f9-0e83-45a7-b3d5-af7a86249a8e.png)
+
   
  ##### `Fragmentation`
  
  - 메모리가 공간 조각으로 나누어져 사용 가능한 메모리이지만, 할당이 불가능한 상태
- ![image](https://user-images.githubusercontent.com/15559593/130338224-13c79e16-254f-45a4-805c-193b106222d7.png)
 
  - `External Fragmentation`
    - 메모리가 할당되고 해제되는 과정에서, 중간중간 작은 메모리 조각이 생기는 상태  
@@ -149,14 +150,21 @@
    - paging에서 virtual memory를 같은 크기로 분할했다면, segmentation은 크기가 다른  
      논리적 단위인 segment로 분할해서 메모리를 할당하여 실제 메모리 주소로 변환
    - 크기가 다르기때문에 미리 분할 할 수 없고, 메모리에 적재시 빈 공간을 찾아 할당하는 기법
-   - mapping을 위해 segment table이 존재해야함
+   - mapping을 위해 segment table이 존재해야함 (MMU가 갖고있음, CPU가 프로세스가 연속된 메모리에 위치한다 착각)
    - 필요한 만큼 할당해주기 때문에 내부 단편화는 일어나지 않음, 중간에 메모리해제시 외부 단편화 발생
    - 어떻게 자르는가를 제외하면 메모리를 할당하는 기법에 있어서는 paging고 방법이 같음
    - 
  ##### `Page Fault`
-
- ##### `Page exchange algorithm`
+   - 실행시켜야할 PAGE가 메모리에 올라와있지 않은 상태
+   - disk에서 해당부분을 찾아 실제 메모리의 비어있는 frame(ram)에 올리고 page table 갱신
+   - 비어있는 frame이 존재하지 않으면? -> page replacement 알고리즘
+![image](https://user-images.githubusercontent.com/15559593/130338287-0a00a32b-0b5c-46f3-89a3-c74fbbf63c92.png)
+ 
+ ##### `Page replacement algorithm`
   - FIFO
+    - 실제 메모리에 올라온지 (Frame을 차지한지) 가장 오래된 Frame을 선택하는 알고리즘
+    - ![image](https://user-images.githubusercontent.com/15559593/130338326-212b70ad-7da6-48ad-ad51-b3878118905b.png)
+
   - OPT
   - LRU
   - LFU
