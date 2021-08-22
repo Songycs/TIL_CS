@@ -178,7 +178,7 @@
     - 각 page가 실행될때 실행 시간을 page table에 저장 (하드웨어적)
     - 실행 순서를 stack으로 쌓아서 관리(하드웨어적)
     - 'Reference - Bit' 활용 ( page table내에 8 bit 참조 비트를 두어 access되었던 page들의 bit를 shift하여 관리)
-![image](https://user-images.githubusercontent.com/15559593/130338458-dcb4031c-4f57-40ed-87a7-c36e3cdfdbef.png)
+    - ![image](https://user-images.githubusercontent.com/15559593/130338458-dcb4031c-4f57-40ed-87a7-c36e3cdfdbef.png)
     - 'second chance' (1 bit짜리 reference bit을 두고, 초기값 0 에서 access시 1로 변경)  
       1이면 최근에 접근 되었다는 의미이므로 0으로 변경하고 한번 더 기회를 주고 다른 victim을 찾음  
       만약 모든 page의 bit가 1이라면 결국은 fifo와 동일
